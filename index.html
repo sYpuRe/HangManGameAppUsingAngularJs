@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!--Awesome Font Family-->
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+
+    <!--Style Sheet-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!--Angular Inclusion-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+
+    <!--My Js code file-->
+    <script type="text/javascript" src="app.js"></script>
+    <title>HangMan App</title>
+  </head>
+  <body class="container" ng-app="HangmanApp" ng-controller="GameController">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4 text-center">
+        <h1>HangMan Game</h1>        
+      </div>
+    </div>
+    <div class="row">
+      <div class="c100 p50 big dark center">
+          <span>{{guesses}}</span>
+          <div class="slice">
+              <div class="bar"></div>
+              <div class="fill"></div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <span class="glyphicon glyphicon-thumbs-up right" aria-hidden="true"></span>
+        </div>
+        <div class="col-md-4 text-center">
+          <span class="star">{{displayWord}}</span>
+        </div>
+        <div class="col-md-4">
+          <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <input type="text" class="form-control text-uppercase" name="guess" ng-model="input.letter">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <span class="chosen text-uppercase right" ng-repeat="letter in correctLetterChosen">{{letter}}</span>
+        </div>
+        <div class="col-md-4">
+          <button type="button" class="btn btn-lg btn-block text-uppercase" ng-click="letterChosen()">Check It!</button>
+        </div>
+        <div class="col-md-4">
+          <span class="chosen text-uppercase" ng-repeat="letter in incorrectLetterChosen">{{letter}}</span>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div>
+        <span class="clue-head">Clue:</span><span class="clue">{{clues}}</span>
+      </div>
+    </footer>
+  </body>
+</html>
